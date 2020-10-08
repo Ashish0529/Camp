@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
-  "author": "Khushi Kapoor",
+  "author": "Ashish",
   "license": "ISC",
   "dependencies": {
     "alert-node": "^2.0.3",
