@@ -25,7 +25,7 @@
 	                         <%= campground.description %>
                              </p>
 							<p>
-								<em>Submitted By <%= campground.author.username %>, <%= moment(campground.createdAt).fromNow() %></em>
+								<em>Submitted By <%= campground.author.name %>, <%= moment(campground.createdAt).fromNow() %></em>
 							</p>
 							<% if(currentUser && campground.author!=null){ %>
 							<% if(campground.author.id.equals(currentUser._id)){ %>
