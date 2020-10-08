@@ -16,8 +16,8 @@ let express                   = require("express"),
 	campgroundRoute           = require("./routes/campground");
 
 const age = 1000*60*60*60;
-
-mongoose.connect(process.env.blah,{useUnifiedTopology: true, useNewUrlParser: true});
+//process.env.blah
+mongoose.connect("mongodb://localhost/camp",{useUnifiedTopology: true, useNewUrlParser: true});
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 

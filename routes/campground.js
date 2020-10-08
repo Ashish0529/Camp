@@ -22,7 +22,7 @@ var imageFilter = function (req, file, cb) {
     }
     cb(null, true);
 };
-var upload = multer({ storage: storage, fileFilter: imageFilter})
+var upload = multer({ storage: storage, fileFilter: imageFilter});
 
 
 cloudinary.config({ 
@@ -46,13 +46,14 @@ router.get("/campgrounds",function(req,res){
 });
 
 
-router.post("/campgrounds",isLoggedIn,upload.single('image'), function(req,res){
+router.post("/campgrounds/",isLoggedIn,upload.single('image'), async function(req,res){
        cloudinary.uploader.upload(req.file.path, function(err,result) {
        req.body.campground.image = result.secure_url;
 
        req.body.campground.author = {
        id: req.user._id,
-       username: req.user.username
+	   username: req.user.username,
+	   name:req.user.name
   }
 	Campground.create(req.body.campground,function(err, newlyCreated){
 		if(err)
@@ -63,6 +64,9 @@ router.post("/campgrounds",isLoggedIn,upload.single('image'), function(req,res){
 			}
 		else{
 		 //redirect
+			req.user.campgrounds.push(newlyCreated);
+			req.user.save();
+			console.log(req.user);
 			req.flash("success","Campground Added Successfully!");
             res.redirect("/campgrounds");
 		}
@@ -71,6 +75,11 @@ router.post("/campgrounds",isLoggedIn,upload.single('image'), function(req,res){
 });
 
 router.get("/campgrounds/new",isLoggedIn, function(req,res) {
+	if(req.user.verified == false)
+	{
+		req.flash("error","Verifiy your account to add new campground!");
+		res.redirect("back");
+	}
     res.render("campgrounds/new",{currentUser: req.user});
 });
 

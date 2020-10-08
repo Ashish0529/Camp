@@ -2,7 +2,7 @@
 <html>
     <head>
 		
-        <title>YELP_CAMP</title>
+        <title>Camp Post</title>
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -25,7 +25,7 @@
 					 <li><a href="/login">Login</a></li>
                         <li><a href="/register">SignUp</a></li>
 					<% } else{ %>
-					 <li><a href="">Signed in as <strong><em><%= currentUser.username %></em></strong></a></li>
+					 <li><a href="#">Signed in as <strong><em><%= currentUser.name %></em></strong></a></li>
 					<li><a href="/logout">Logout</a></li>
 				<%	} %>
 						
