@@ -18,6 +18,14 @@ var UserSchema = new mongoose.Schema(
       min: 6,
       max: 255,
     },
+    forgetPasswordToken: {
+      type: String,
+      required: false,
+    },
+    forgetPasswordExpires: {
+      type: Date,
+      required: false
+    },
     verified: {
       type: Boolean,
       default: false,

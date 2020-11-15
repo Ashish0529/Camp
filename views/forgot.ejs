@@ -1,0 +1,22 @@
+<%- include ('partials/header.ejs') %>
+
+
+<div class="container-fluid" style="margin:25px auto; width:40%;">
+
+
+  <div class="jumbotron">
+    <h2>
+      Forgot password
+    </h2>
+  </div>
+  <form action="/forgot" method="POST">
+    <div class="form-group">
+      <label>Username</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username"
+        placeholder="Email" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<%- include ('partials/footer.ejs') %>

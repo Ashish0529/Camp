@@ -20,6 +20,15 @@
       <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" required>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <button id="forgotpassword" class="btn btn-primary">Forget Password</button>
   </form>
 </div>
 <%- include ('partials/footer.ejs') %>
+
+<script>
+  const forgotPasswordBtn = document.querySelector("#forgotpassword");
+  forgotPasswordBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    window.location.href = '/forgot';
+  });
+</script>
